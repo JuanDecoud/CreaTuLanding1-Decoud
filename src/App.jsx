@@ -1,19 +1,24 @@
 import './App.css'
 import NavBar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
+import {BrowserRouter , Routes,Route} from 'react-router'
+import { Container } from 'react-bootstrap'
+import ItemDetailContainer from './components/ItemDetailContainer'
 
 function App() {
 
-
   return (
     <>
-      <div class ="container-fluid w-100 h-100 p-2">
-        <NavBar/>
-        <ItemListContainer text={"Bienvenido a la web "}/>
-
-      </div>
-
-     
+      
+        <BrowserRouter className="" >
+          <NavBar/>
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/categorias/:id" element={<ItemListContainer />} />
+            <Route path="/pdetaill/:id" element={<ItemDetailContainer />} />
+          </Routes>
+        </BrowserRouter>
+    
     </>
     
   )
